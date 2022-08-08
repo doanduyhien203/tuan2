@@ -1,0 +1,12 @@
+
+<button (click)="currentProgress = currentProgress + 5">Long Mode</button>
+<app-progress-bar [progress]="currentProgress"></app-progress-bar>
+<br>
+<app-author-list></app-author-list>
+<br>
+<p> {{name}} </p>
+<input type="text" [(ngModel)]= "name" >
+<br>
+<br>
+<app-toggle #toggleComp [(checked)]="isChecked"></app-toggle>
+<button (click)="toggleComp.toggle()">Toggle</button>
