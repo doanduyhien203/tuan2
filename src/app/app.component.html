@@ -5,8 +5,9 @@
 <app-author-list></app-author-list>
 <br>
 <p> {{name}} </p>
-<input type="text" [(ngModel)]= "name" >
+<input #nameInput type="text" [(ngModel)]= "name" >
 <br>
 <br>
 <app-toggle #toggleComp [(checked)]="isChecked"></app-toggle>
-<button (click)="toggleComp.toggle()">Toggle</button>
+<button #toggleButton >Toggle</button>
+

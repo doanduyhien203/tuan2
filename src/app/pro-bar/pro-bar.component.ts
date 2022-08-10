@@ -29,31 +29,46 @@ import { Component, OnInit, Input, OnChanges, OnDestroy } from '@angular/core';
     `,
   ],
 })
-export class ProBarComponent implements OnInit, OnChanges {
-  @Input() progress = 50;
+export class ProBarComponent implements OnInit, OnChanges,OnDestroy {
+  @Input() set progress(val: number){
+    if(typeof val !== "number"){
+      const progress = Number (val);
+      if (Number.isNaN(progress)){
+        this._progress = 0;
+      }else {
+        this._progress = progress;
+      }
+    }
+    console.log ({val});
+    
+    this._progress = val;
+  }
+  private _progress = 30;
+  get progress(){
+    return this._progress;
+  }
+//  @Input() progress = 50;
   @Input() backgroundColor= '#ccc';
   @Input() progressColor = 'tomato';
-  currentProgress= 70;
+  changePro = 60;
  
   constructor() {}
   
   ngOnInit() {
     console.log('onInit', {
-      progress: this.progress,
-      backgroundColor: this.backgroundColor,
-      progressColor: this.progressColor
+      
     });
   }
   ngOnChanges() {
     console.log('onChanges', {
-      progress: this.progress,
-      backgroundColor: this.backgroundColor,
-      progressColor: this.progressColor
+      progress : this.progress,
+      backgroundColor : this.backgroundColor,
+      progressColor : this.progressColor,
     });
   }
   ngDoCheck() {
-    console.log('doCheck'); 
-    if (this.progress == this.currentProgress){
+    console.log('doCheck:' + this.progress); 
+    if (this.progress == this.changePro){
       this.progressColor = '#bbb';
     }
     else {
@@ -62,30 +77,22 @@ export class ProBarComponent implements OnInit, OnChanges {
   }
   ngAfterContentInit() {
     console.log('afterInit', {
-      progress: this.progress,
-      backgroundColor: this.backgroundColor,
-      progressColor: this.progressColor
+
     });
   }
   ngAfterContentChecked() {
     console.log('afterChecked', {
-      progress: this.progress,
-      backgroundColor: this.backgroundColor,
-      progressColor: this.progressColor
+      
     });
   }
   ngAfterViewInit() {
     console.log('afterViewInit', {
-      progress: this.progress,
-      backgroundColor: this.backgroundColor,
-      progressColor: this.progressColor
+     
     });
   }
   ngAfterViewChecked() {
     console.log('afterViewChecked', {
-      progress: this.progress,
-      backgroundColor: this.backgroundColor,
-      progressColor: this.progressColor
+     
     });
   }
   ngOnDestroy() {

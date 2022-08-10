@@ -10,6 +10,6 @@ export class AppComponent {
  
   name = 'Angular';
   title = 'test-test';
-  currentProgress = 50;
+  currentProgress = 30;
   isChecked = true;
 }
