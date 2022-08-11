@@ -16,7 +16,10 @@
 </app-toggle>
 <app-toggle  [(checked)]="question.toggle2" >
     <h3> Header 1</h3>
-    <span><label> Question 1</label></span>
+    <ng-container ngProjectAs="label">
+        <span> Question 1</span>
+        <button>ABtn</button>
+    </ng-container>
     <p> Content 1</p>  
     <button>skip</button>
 </app-toggle>
