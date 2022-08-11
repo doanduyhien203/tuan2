@@ -6,8 +6,24 @@
 <br>
 <p> {{name}} </p>
 <input #nameInput type="text" [(ngModel)]= "name" >
+<button (click)="showLast = !showLast">ShowLast</button>
 <br>
 <br>
-<app-toggle #toggleComp [(checked)]="isChecked"></app-toggle>
-<button #toggleButton >Toggle</button>
+<app-toggle  [(checked)]="question.toggle1" >
+    <h3> Header 1</h3>
+    <label> Question 1</label>
+    <p> Content 1</p>  
+</app-toggle>
+<app-toggle  [(checked)]="question.toggle2" >
+    <h3> Header 1</h3>
+    <span><label> Question 1</label></span>
+    <p> Content 1</p>  
+    <button>skip</button>
+</app-toggle>
+<ng-container *ngIf= "showLast" >
+    <app-toggle [(checked)]="isChecked"></app-toggle>
+</ng-container>
 
+<!--<button #toggleButton >Toggle</button>
+
+--> 
