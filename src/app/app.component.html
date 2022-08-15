@@ -6,7 +6,7 @@
 <br>
 <p> {{name}} </p>
 <input #nameInput type="text" [(ngModel)]= "name" >
-<button (click)="showLast = !showLast">ShowLast</button>
+
 <br>
 <br>
 <app-toggle  [(checked)]="question.toggle1" >
@@ -26,7 +26,13 @@
 <ng-container *ngIf= "showLast" >
     <app-toggle [(checked)]="isChecked"></app-toggle>
 </ng-container>
-
+<button (click)="showLast = !showLast">ShowLast</button>
 <!--<button #toggleButton >Toggle</button>
 
 --> 
+
+<br>
+<flex-container flexDirection="column">
+    <p>Some</p>
+    <p>thing</p>
+</flex-container>
