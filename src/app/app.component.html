@@ -1,14 +1,14 @@
-
+<!--
 <button (click)="currentProgress = currentProgress + 5">Long Mode</button>
 <app-progress-bar [progress]="currentProgress"></app-progress-bar>
 <br>
 <app-author-list></app-author-list>
 <br>
+-->
 <p> {{name}} </p>
 <input #nameInput type="text" [(ngModel)]= "name" >
-
 <br>
-<br>
+<!--
 <app-toggle  [(checked)]="question.toggle1" >
     <h3> Header 1</h3>
     <label> Question 1</label>
@@ -23,6 +23,10 @@
     <p> Content 1</p>  
     <button>skip</button>
 </app-toggle>
+-->
+<app-toggle [(checked)]="isChecked"></app-toggle>
+<app-toggle [(checked)]="isChecked"></app-toggle>
+<app-toggle [(checked)]="isChecked"></app-toggle>
 <ng-container *ngIf= "showLast" >
     <app-toggle [(checked)]="isChecked"></app-toggle>
 </ng-container>
@@ -32,7 +36,8 @@
 --> 
 
 <br>
-<flex-container flexDirection="column">
+<flex-container flexDirection="row">
     <p>Some</p>
+    <br>
     <p>thing</p>
 </flex-container>

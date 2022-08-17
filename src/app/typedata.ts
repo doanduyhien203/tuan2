@@ -12,6 +12,7 @@ let someNever: never; // ví dụ như một hàm throw exception
 let someTuple: [string, number];
 let someVoidFunction: () => void; // một hàm không trả về giá trị gì sau khi thực thi
 let someFunction: () => string; // một hàm trả về giá trị có type "string" sau khi thực thi
+
 interface User {
     firstName : string; // k the thieu
     lastName : string; // k the thieu
@@ -39,20 +40,33 @@ const dogService = new DogService();
 const catService = new CatService();
 dogService.findOne().bark()
 catService.findOne().meow()
+
+typeof 'string'; // string
+typeof 123; // number
+typeof true; // boolean
+typeof {}; // object
+typeof []; // object
+typeof (() => {}); // function
+typeof null; // object
+typeof undefined; // undefined
+typeof new Date(); // object
+typeof String; // function
+typeof Boolean; // function
+typeof NaN; // number
+typeof typeof 123; // string
 function listen(port: unknown) {
-    if (typeof port === 'string') {
-      port = parseInt(port, 10);
-    }
+  if (typeof port === 'string') {
+    port = parseInt(port, 10);
   }
-  listen('3000'); // ok
+}
+listen('3000'); // ok
 listen(3000); // ok
 listen(true); // TypeError: Argument of type true is not assignable to parameter type string | number
- // TypeError: Invalid number of arguments, expected 1
+// listen (); TypeError: Invalid number of arguments, expected 1
 
  function merge<T1, T2>(o1: T1, o2: T2): T1 & T2 {
     return { ...o1, ...o2 };
   }
-  
   merge({ foo: 'bar' }, { bar: 'foo' });
 
   type ObjectDictionary<T> = { [key: string]: T }; //{foo: T, bar: T}

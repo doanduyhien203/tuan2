@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-progress-bar',
@@ -29,7 +29,7 @@ import { Component, OnInit, Input, OnChanges, OnDestroy } from '@angular/core';
     `,
   ],
 })
-export class ProBarComponent implements OnInit, OnChanges,OnDestroy {
+export class ProBarComponent implements OnInit, OnChanges {
   @Input() set progress(val: number){
     if(typeof val !== "number"){
       const progress = Number (val);
@@ -75,27 +75,5 @@ export class ProBarComponent implements OnInit, OnChanges,OnDestroy {
       this.progressColor = 'tomato';
     }
   }
-  ngAfterContentInit() {
-    console.log('afterInit', {
-
-    });
-  }
-  ngAfterContentChecked() {
-    console.log('afterChecked', {
-      
-    });
-  }
-  ngAfterViewInit() {
-    console.log('afterViewInit', {
-     
-    });
-  }
-  ngAfterViewChecked() {
-    console.log('afterViewChecked', {
-     
-    });
-  }
-  ngOnDestroy() {
-    console.log('ProBarComponent: onDestroy'); 
- }
+  
 }

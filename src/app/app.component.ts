@@ -23,13 +23,14 @@ export class AppComponent {
   isChecked = true;
   showLast = true;
   ngOnInit(){
-    console.log(this.nameInput);
+    setTimeout (() => {
+      this.nameInput.nativeElement.focus()
+    }, 3000)
+    console.log('onInit', this.nameInput);
    
- /*   setTimeout (() => {
-    this.nameInput.nativeElement.focus()
-  }, 3000)
-   console.log('onInit',this.toggleComp, this.toggleBtn); 
-*/  
+  
+//  console.log('onInit',this.toggleComp, this.toggleBtn); 
+  
  }
 
   ngAfterViewInit(){
